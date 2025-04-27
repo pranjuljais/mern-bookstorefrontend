@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 function Singlebook() {
   const [data, setData] = useState([]);
   const urlSlug = useParams();
-  const baseUrl = `http://localhost:8000/api/books/${urlSlug.slug}`;
+  const baseUrl = `https://mern-bookstorebackend.onrender.com/api/books/${urlSlug.slug}`;
   console.log(urlSlug.slug);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function Singlebook() {
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = `http://localhost:8000/api/download/${data.slug}`;
+    link.href = `https://mern-bookstorebackend.onrender.com/api/download/${data.slug}`;
     link.download = data.title; // Optional: you can change downloaded filename
     document.body.appendChild(link);
     link.click();
@@ -50,7 +50,7 @@ function Singlebook() {
       <div className="bookdetails">
         <div className="col-1">
           <img
-            src={`http://localhost:8000/uploads/${data?.thumbnail}`}
+            src={`https://mern-bookstorebackend.onrender.com/uploads/${data?.thumbnail}`}
             alt={data?.title}
           />
           <Link to={`/editbook/${data.slug}`}>Edit</Link>

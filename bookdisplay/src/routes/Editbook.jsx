@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 function Editbook() {
   const navigate = useNavigate();
   const urlSlug = useParams();
-  const baseUrl = `http://localhost:8000/api/books/${urlSlug.slug}`;
+  const baseUrl = `https://mern-bookstorebackend.onrender.com/api/books/${urlSlug.slug}`;
 
   const [bookId, setBookId] = useState("");
   const [title, setTitle] = useState("");
@@ -57,10 +57,13 @@ function Editbook() {
     }
 
     try {
-      const response = await fetch(`http://localhost:8000/api/books`, {
-        method: "PUT",
-        body: formData,
-      });
+      const response = await fetch(
+        `https://mern-bookstorebackend.onrender.com/api/books`,
+        {
+          method: "PUT",
+          body: formData,
+        }
+      );
 
       if (response.ok) {
         setTitle("");
@@ -91,7 +94,7 @@ function Editbook() {
 
     try {
       const response = await fetch(
-        "http://localhost:8000/api/books/" + bookId,
+        "https://mern-bookstorebackend.onrender.com/api/books/" + bookId,
         {
           method: "DELETE",
         }
@@ -129,7 +132,7 @@ function Editbook() {
               <img src={`${image}`} alt="preview image" />
             ) : (
               <img
-                src={`http://localhost:8000/uploads/${thumbnail}`}
+                src={`https://mern-bookstorebackend.onrender.com/uploads/${thumbnail}`}
                 alt="preview image"
               />
             )}

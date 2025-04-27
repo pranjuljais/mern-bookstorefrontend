@@ -26,22 +26,13 @@ function Createbook() {
     formData.append("thumbnail", thumbnail);
 
     try {
-      const response = await fetch("http://localhost:8000/api/books", {
-        method: "POST",
-        body: formData,
-      });
-
-      // const response = await fetch("http://localhost:8000/api/books", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify({
-      //     title: title,
-      //     slug: slug,
-      //     stars: stars,
-      //     description: description,
-      //     category: categories,
-      //   }),
-      // });
+      const response = await fetch(
+        "https://mern-bookstorebackend.onrender.com/api/books",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (response.ok) {
         setTitle("");

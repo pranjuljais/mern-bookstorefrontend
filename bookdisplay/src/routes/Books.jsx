@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Books() {
-  const baseUrl = "http://localhost:8000/api/books";
+  const baseUrl = "https://mern-bookstorebackend.onrender.com/api/books";
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -61,7 +61,9 @@ function Books() {
           {data.map((item) => (
             <li key={item._id}>
               <Link to={`/books/${item.slug}`}>
-                <img src={`http://localhost:8000/uploads/${item.thumbnail}`} />
+                <img
+                  src={`https://mern-bookstorebackend.onrender.com/uploads/${item.thumbnail}`}
+                />
                 <h3>{item.title}</h3>
               </Link>
             </li>
